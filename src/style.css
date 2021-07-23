@@ -84,8 +84,9 @@ textarea {
 
 .task-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex: 1;
 }
 
 .check-container {
@@ -155,4 +156,66 @@ textarea {
 
 .todoList li {
   border-top: 1px solid #d4d4d4;
+}
+
+.todo-delete {
+  background: none;
+  flex-shrink: 1;
+}
+
+.todo-delete i {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.edit {
+  padding-left: 15px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  width: 100%;
+  color: #000;
+  border: none;
+  font-size: 16px;
+  background-color: #ccc;
+}
+
+.input-container {
+  width: 85%;
+}
+
+.input-container div {
+  padding: 2px 0 2px 15px;
+}
+
+.input-container input {
+  display: none;
+}
+
+.todoList li:hover .input-container div {
+  display: none;
+}
+
+.todoList li:hover .input-container input {
+  display: block;
+}
+
+.icons i:first-child {
+  display: none;
+  cursor: pointer;
+}
+
+.todoList li:hover .icons i:first-child {
+  display: block;
+}
+
+.todoList li:hover .icons i:last-child {
+  display: none;
+}
+
+.edit:focus {
+  border: none;
+  outline: none;
+}
+
+.fa-trash-alt::before {
+  color: red;
 }
