@@ -17,7 +17,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://condescending-wing-cd621a.netlify.app/)
+[Live Demo Link](https://ecstatic-darwin-55bcdc.netlify.app/)
 
 
 ## Getting Started
