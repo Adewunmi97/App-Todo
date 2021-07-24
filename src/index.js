@@ -21,14 +21,14 @@ class TodoList {
  handleEditTodo = (e) => {
    if (e.keyCode === 13) {
      const { value } = e.target;
-     const index = parseInt(e.target.dataset.index, 10);
+     const index = parseInt(e.target.dataset.index, 10) - 1;
      editTodoInStorage(value, index);
      editTodoInList(value, index);
    }
  }
 
  handleDeleteTodo = (e) => {
-   const index = parseInt(e.target.dataset.index, 10);
+   const index = parseInt(e.target.dataset.index, 10) - 1;
    deleteTodoFromList(index);
    deleteTodoFromStorage(index);
  }

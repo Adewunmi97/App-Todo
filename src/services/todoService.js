@@ -3,7 +3,7 @@ import {
 } from './update';
 
 export const createTodo = (desc, todos) => ({
-  index: todos.length,
+  index: todos.length + 1,
   description: desc,
   completed: false,
 });

@@ -8,7 +8,7 @@ export const saveToStorage = (todos) => {
 
 export const orderAndSave = (todos) => {
   const orderedTodos = todos.map((todo, index) => {
-    todo.index = index;
+    todo.index = index + 1;
     return todo;
   });
   save(orderedTodos);
@@ -16,7 +16,7 @@ export const orderAndSave = (todos) => {
 
 export const updateStatus = (e, todos) => {
   const index = e.target.id.slice(-1);
-  todos[index].completed = !todos[index].completed;
+  todos[index - 1].completed = !todos[index - 1].completed;
   saveToStorage(todos);
   return todos;
 };
