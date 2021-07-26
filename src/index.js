@@ -1,26 +1,25 @@
+import { handleDragStart, handleDrop, cancelDefault } from './services/sort';
+import { updateStatus, getTodos } from './services/update';
 import './style.css';
 
 class TodoList {
   constructor() {
-    this.todos = [
-      {
-        index: 0,
-        description: 'Get Groceries',
-        completed: true,
-      },
-      {
-        index: 1,
-        description: 'Study for exams',
-        completed: false,
-      },
-    ];
+    this.todos = getTodos();
   }
 
-  displayList() {
-    const container = document.querySelector('.todoList');
-    this.todos.forEach((todo, index) => {
-      const li = document.createElement('li');
-      li.innerHTML = `
+ handleCompletedStatus = (e) => {
+   updateStatus(e, this.todos);
+ }
+
+ handleDropEvt = (e) => {
+   handleDrop(e, this.todos);
+ }
+
+ displayList() {
+   const container = document.querySelector('.todoList');
+   this.todos.forEach((todo, index) => {
+     const li = document.createElement('li');
+     li.innerHTML = `
                   <div class="task-item">
                     <div class="task-info">
                         <div class="check-container">
@@ -31,14 +30,19 @@ class TodoList {
                     </div>
                     <i class="fas fa-ellipsis-v"></i>
                   </div>
-
-
-
                 `;
-
-      container.appendChild(li);
-    });
-  }
+     li.draggable = true;
+     li.dataset.index = index;
+     li.addEventListener('dragstart', handleDragStart);
+     li.addEventListener('drop', this.handleDropEvt);
+     li.addEventListener('dragenter', cancelDefault);
+     li.addEventListener('dragover', cancelDefault);
+     container.appendChild(li);
+     document.querySelectorAll('input[type="checkbox"]').forEach((check) => {
+       check.addEventListener('change', this.handleCompletedStatus, false);
+     });
+   });
+ }
 }
 
 const todoList = new TodoList();
