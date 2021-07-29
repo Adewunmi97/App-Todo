@@ -17,7 +17,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://ecstatic-darwin-55bcdc.netlify.app/)
+[Live Demo Link](https://adewunmi97.github.io/App-Todo/)
 
 
 ## Getting Started
